@@ -1,0 +1,10 @@
+.git
+.gradle
+**/.gradle
+.idea
+**/.idea
+.kotlin
+**/.kotlin
+**/build
+**/.venvs
+*.iml

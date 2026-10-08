@@ -1,13 +1,14 @@
 name: Build
+
 on:
   push:
-    branches: [ "develop" ]
+    branches: ["develop"]
   pull_request:
-    branches: [ "develop" ]
+    branches: ["develop"]
+
 jobs:
   Build:
-    if: github.repository == 'YourRepositoryNameHere'
-    name: Build
+    if: github.repository == 'CollaborativeStateMachines/Cirrina-Dapr-SmartFactory'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -25,6 +26,9 @@ jobs:
 
       - name: Perform commit linting
         uses: wagoid/commitlint-github-action@v6
+
+      - name: Check Kotlin formatting
+        run: ./gradlew ktfmtCheck
 
       - name: Build using Gradle
         run: ./gradlew build
